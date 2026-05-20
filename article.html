@@ -63,15 +63,28 @@
     width: var(--frame-w);
     max-width: 100%;
     background-color: var(--color-white);
-    overflow: hidden;
+    overflow: visible;
   }
 
   /* ───────────── Top sticky banner ───────────── */
   .top-sticky {
-    position: sticky;
+    position: fixed;
     top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-width: none;
     z-index: 50;
-    background-color: var(--color-white);
+    background-color: var(--color-black);
+  }
+
+  .top-sticky .banner {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .article {
+    padding-top: 89px;
   }
 
   .banner {
