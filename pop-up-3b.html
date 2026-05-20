@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Library Mysteries — Correct!</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans+Caption&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://use.typekit.net/jeu0bdl.css" />
+<style>
+  :root {
+    /* Colors */
+    --color-black: rgb(0, 0, 0);
+    --color-white: rgb(255, 255, 255);
+    --color-overlay: rgba(0, 0, 0, 0.45);
+
+    /* Typography */
+    --font-typewriter: "secret-service-typewriter", "Courier New", monospace;
+    --font-caption: "PT Sans Caption", sans-serif;
+
+    --fs-title: 27px;
+    --fs-body: 16px;
+    --fs-button: 20px;
+
+    /* Spacing */
+    --header-height: 95px;
+    --logo-left: 18px;
+    --logo-top: 15px;
+    --logo-w: 147px;
+    --logo-h: 67.5px;
+
+    --panel-top: 121px;
+    --panel-left: 30px;
+    --panel-w: 340px;
+    --panel-h: 431px;
+    --panel-inner-pad: 31px;
+
+    --image-w: 280px;
+    --image-h: 169px;
+
+    --btn-w: 268px;
+    --btn-h: 58px;
+
+    --frame-w: 400px;
+    --frame-h: 800px;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    font-family: var(--font-caption);
+    background-color: var(--color-black);
+    color: var(--color-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+  }
+
+  /* ───────────── Page frame ───────────── */
+  .page {
+    position: relative;
+    width: var(--frame-w);
+    height: var(--frame-h);
+    max-width: 100%;
+    overflow: hidden;
+    background-color: var(--color-white);
+  }
+
+  .page__bg {
+    position: absolute;
+    left: 0;
+    top: -6px;
+    width: 400px;
+    height: 907px;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+    user-select: none;
+    pointer-events: none;
+  }
+
+  .page__overlay {
+    position: absolute;
+    inset: 0;
+    width: var(--frame-w);
+    height: var(--frame-h);
+    background-color: var(--color-overlay);
+    z-index: 1;
+  }
+
+  /* ───────────── Header ───────────── */
+  .header {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: var(--frame-w);
+    height: var(--header-height);
+    background-color: var(--color-black);
+    overflow: hidden;
+    z-index: 3;
+  }
+
+  .header__logo {
+    position: absolute;
+    left: var(--logo-left);
+    top: var(--logo-top);
+    width: var(--logo-w);
+    height: var(--logo-h);
+    object-fit: cover;
+    user-select: none;
+  }
+
+  /* ───────────── Main content card ───────────── */
+  .card {
+    position: absolute;
+    left: var(--panel-left);
+    top: var(--panel-top);
+    width: var(--panel-w);
+    height: var(--panel-h);
+    background-color: var(--color-black);
+    z-index: 2;
+  }
+
+  .card__image {
+    position: absolute;
+    left: 30px; /* 60 - 30 */
+    top: 30px; /* 151 - 121 */
+    width: var(--image-w);
+    height: var(--image-h);
+    object-fit: cover;
+    user-select: none;
+  }
+
+  .card__title {
+    position: absolute;
+    left: var(--panel-inner-pad);
+    top: 229px; /* 350 - 121 */
+    width: 278px;
+    height: 28px;
+    font-family: var(--font-typewriter);
+    font-weight: 400;
+    font-size: var(--fs-title);
+    line-height: 100%;
+    text-align: center;
+    color: var(--color-white);
+  }
+
+  .card__description {
+    position: absolute;
+    left: var(--panel-inner-pad);
+    top: 286px; /* 407 - 121 */
+    width: 278px;
+    height: 21px;
+    font-family: var(--font-caption);
+    font-weight: 400;
+    font-size: var(--fs-body);
+    line-height: 20px;
+    text-align: center;
+    color: var(--color-white);
+  }
+
+  /* ───────────── Button ───────────── */
+  .button {
+    position: absolute;
+    left: 36px; /* 66 - 30 */
+    top: 336px; /* 457 - 121 */
+    width: var(--btn-w);
+    height: var(--btn-h);
+    background-color: var(--color-white);
+    border: none;
+    padding: 19px 1px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-family: var(--font-typewriter);
+    font-weight: 400;
+    font-size: var(--fs-button);
+    line-height: 100%;
+    text-align: center;
+    color: var(--color-black);
+    text-decoration: none;
+  }
+
+  .button:hover {
+    opacity: 0.9;
+  }
+
+  .button:active {
+    opacity: 0.8;
+  }
+
+  .button__label {
+    display: inline-block;
+    height: 21px;
+  }
+
+  /* ───────────── Responsive (mobile, max 768px) ───────────── */
+  @media (max-width: 768px) {
+    .page {
+      width: 100vw;
+      height: calc(100vw * (800 / 400));
+      max-width: 400px;
+      max-height: 800px;
+    }
+  }
+</style>
+</head>
+<body>
+  <main class="page" aria-label="Library Mysteries — Correct">
+    <img
+      class="page__bg"
+      src="assets/background.png"
+      alt=""
+      role="presentation"
+    />
+    <div class="page__overlay" aria-hidden="true"></div>
+
+    <header class="header">
+      <img
+        class="header__logo"
+        src="assets/logo.png"
+        alt="Library Mysteries logo"
+      />
+    </header>
+
+    <section class="card" aria-labelledby="card-title">
+      <img
+        class="card__image"
+        src="assets/objective3.png"
+        alt="Final case investigation scene"
+      />
+
+      <h1 class="card__title" id="card-title">Correct!</h1>
+
+      <p class="card__description">You are on the right track.</p>
+
+      <a class="button" href="page-3c.html">
+        <span class="button__label">Continue</span>
+      </a>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Billionaire&rsquo;s son arrested in Fitzgerald Estate murder — VERITY 24</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Poppins:wght@400;500;600&family=STIX+Two+Text:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* Colors */
+    --color-black: rgb(0, 0, 0);
+    --color-white: rgb(255, 255, 255);
+    --color-grey-strip: rgb(237, 237, 237);
+    --color-grey-caption: rgb(107, 107, 107);
+    --color-navy: rgb(5, 32, 76);
+    --color-red: rgb(217, 38, 38);
+
+    /* Typography */
+    --font-serif: "STIX Two Text", "Times New Roman", serif;
+    --font-sans: "Poppins", "Helvetica Neue", Arial, sans-serif;
+    --font-noto: "Noto Sans", "Poppins", sans-serif;
+
+    --fs-title: 30px;
+    --fs-body: 16px;
+    --fs-banner: 15px;
+    --fs-meta: 13px;
+    --fs-button: 12px;
+
+    /* Layout */
+    --frame-w: 400px;
+    --side-pad: 26px;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    background-color: var(--color-grey-strip);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-black);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+  }
+
+  /* ───────────── Page frame ───────────── */
+  .article {
+    position: relative;
+    width: var(--frame-w);
+    max-width: 100%;
+    background-color: var(--color-white);
+    overflow: hidden;
+  }
+
+  /* ───────────── Top sticky banner ───────────── */
+  .top-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background-color: var(--color-white);
+  }
+
+  .banner {
+    background-color: var(--color-black);
+    color: var(--color-white);
+    padding: 22px 24px;
+    text-align: center;
+  }
+
+  .banner__text {
+    font-family: var(--font-sans);
+    font-size: var(--fs-banner);
+    font-weight: 400;
+    line-height: 1.48;
+    color: var(--color-white);
+  }
+
+  .banner__code {
+    display: inline-block;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border-radius: 7px;
+    padding: 1px 8px;
+    font-weight: 500;
+  }
+
+  /* ───────────── Masthead ───────────── */
+  .masthead {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 0 12px;
+    background-color: var(--color-white);
+  }
+
+  .masthead__mark {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+
+  .masthead__logo {
+    height: 26px;
+    width: auto;
+    user-select: none;
+  }
+
+  .masthead__wordmark {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    color: var(--color-navy);
+  }
+
+  .masthead__wordmark span {
+    color: var(--color-red);
+    margin-left: 2px;
+  }
+
+  /* ───────────── Breadcrumb strip ───────────── */
+  .breadcrumb {
+    background-color: var(--color-grey-strip);
+    padding: 10px var(--side-pad);
+    font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    line-height: 1.15;
+    color: var(--color-black);
+  }
+
+  /* ───────────── Article body ───────────── */
+  .article__inner {
+    padding: 28px var(--side-pad) 40px;
+  }
+
+  .article__title {
+    font-family: var(--font-serif);
+    font-weight: 400;
+    font-size: var(--fs-title);
+    line-height: 1.15;
+    color: var(--color-black);
+    margin-bottom: 14px;
+    max-width: 349px;
+  }
+
+  .article__date {
+    font-family: var(--font-sans);
+    font-size: var(--fs-meta);
+    line-height: 1.15;
+    color: var(--color-black);
+    margin-bottom: 24px;
+  }
+
+  .article__hero {
+    display: block;
+    width: calc(100% + (var(--side-pad) * 2) + 6px);
+    height: auto;
+    margin-left: calc(-1 * var(--side-pad) - 3px);
+    margin-right: calc(-1 * var(--side-pad) - 3px);
+    margin-bottom: 12px;
+  }
+
+  .article__caption {
+    font-family: var(--font-sans);
+    font-size: 12px;
+    line-height: 1.4;
+    color: var(--color-grey-caption);
+    margin-bottom: 22px;
+  }
+
+  .article__body p {
+    font-family: var(--font-noto);
+    font-size: var(--fs-body);
+    line-height: 1.45;
+    color: var(--color-black);
+    margin-bottom: 18px;
+  }
+
+  .article__body p:last-child {
+    margin-bottom: 0;
+  }
+
+  /* ───────────── Back to top ───────────── */
+  .back-to-top-row {
+    display: flex;
+    justify-content: flex-end;
+    padding: 30px var(--side-pad) 38px;
+    background-color: var(--color-white);
+  }
+
+  .back-to-top {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 120px;
+    height: 35px;
+    border-radius: 70px;
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    font-family: var(--font-noto);
+    font-weight: 700;
+    font-size: var(--fs-button);
+    line-height: 1.62;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .back-to-top__arrow {
+    width: 11.5px;
+    height: 14px;
+    object-fit: contain;
+  }
+
+  /* ───────────── Footer ───────────── */
+  .footer {
+    background-color: var(--color-grey-strip);
+    padding: 28px var(--side-pad) 36px;
+  }
+
+  .footer__brand {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+  }
+
+  .footer__mark {
+    width: 22px;
+    height: 22px;
+  }
+
+  .footer__logo {
+    height: 26px;
+    width: auto;
+    margin-bottom: 12px;
+    user-select: none;
+  }
+
+  .footer__wordmark {
+    font-family: var(--font-sans);
+    font-weight: 600;
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    color: var(--color-navy);
+  }
+
+  .footer__wordmark span {
+    color: var(--color-red);
+    margin-left: 2px;
+  }
+
+  .footer__copyright {
+    font-family: var(--font-sans);
+    font-size: var(--fs-body);
+    line-height: 1.45;
+    color: var(--color-black);
+  }
+
+  /* ───────────── Responsive (mobile, max 768px) ───────────── */
+  @media (max-width: 768px) {
+    .article {
+      width: 100vw;
+      max-width: 400px;
+    }
+  }
+</style>
+</head>
+<body>
+  <article class="article">
+    <!-- Promo banner (sticky) -->
+    <div class="top-sticky">
+      <div class="banner" role="banner">
+        <p class="banner__text">
+          Congratulations, Detective! Use code <span class="banner__code">MYSTERIES5</span> for 5% off your next order.
+        </p>
+      </div>
+    </div>
+
+    <!-- Masthead / brand -->
+    <header class="masthead">
+      <img class="masthead__logo" src="assets/verity24-logo.png" alt="VERITY 24" />
+    </header>
+
+    <!-- Breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">NEWS &gt;</nav>
+
+    <!-- Article body -->
+    <div class="article__inner">
+      <h1 class="article__title">Billionaire&rsquo;s son arrested in Fitzgerald Estate murder</h1>
+      <p class="article__date">August 16, 2026</p>
+
+      <img class="article__hero" src="assets/article-hero.png" alt="Benedict Fitzgerald is escorted by police Saturday evening in Providence." />
+
+      <p class="article__caption">Benedict Fitzgerald is escorted by police Saturday evening in Providence.</p>
+
+      <div class="article__body">
+        <p>PROVIDENCE, R.I. &mdash; Benedict Fitzgerald, son of late billionaire industrialist John Fitzgerald, was taken into custody on Saturday evening following developments in the ongoing investigation into the murder at the Fitzgerald Estate earlier this week.</p>
+
+        <p>John Fitzgerald was discovered dead inside the estate&rsquo;s private library on the morning of August 10. The case quickly drew public attention after his daughter, Helena Fitzgerald, was initially found at the scene holding the suspected murder weapon.</p>
+
+        <p>Authorities confirmed that Helena Fitzgerald is no longer considered a suspect.<br/>In a statement released Saturday night, Chief Investigator Charlotte Murray addressed the arrest and thanked those involved in the investigation.</p>
+
+        <p>&ldquo;This case involved multiple conflicting testimonies and significant emotional strain on everyone connected to the Fitzgerald family,&rdquo; Murray stated. &ldquo;Our priority was ensuring that the evidence led us to the truth. We are confident the investigation has moved in the right direction.&rdquo;</p>
+
+        <p>Murray also expressed gratitude for the public response surrounding the case.</p>
+
+        <p>&ldquo;The support and cooperation we&rsquo;ve received from the community during this investigation has been truly heartwarming,&rdquo; she said. &ldquo;Our thoughts remain with the members of the Fitzgerald family during this difficult time. The Police Department will continue doing everything in its power to ensure the safety and well-being of our city.&rdquo;</p>
+
+        <p>Benedict Fitzgerald is expected to face multiple charges, including first-degree murder and obstruction of justice. Authorities have not yet announced a court date.</p>
+
+        <p>The Fitzgerald family has declined to comment publicly following the arrest.</p>
+      </div>
+    </div>
+
+    <!-- Back to top -->
+    <div class="back-to-top-row">
+      <button class="back-to-top" type="button" id="back-to-top" aria-label="Back to top">
+        <span>Back to top</span>
+        <img class="back-to-top__arrow" src="assets/arrow-up.png" alt="" />
+      </button>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <img class="footer__logo" src="assets/verity24-logo.png" alt="VERITY 24" />
+      <p class="footer__copyright">Copyright 2026 <strong>VERITY 24</strong>. All rights reserved.</p>
+    </footer>
+  </article>
+
+  <script>
+    document.getElementById('back-to-top').addEventListener('click', function () {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+</body>
+</html>
