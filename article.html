@@ -88,10 +88,17 @@
   }
 
   .banner {
+    display: block;
     background-color: var(--color-black);
     color: var(--color-white);
     padding: 22px 24px;
     text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .banner:hover {
+    opacity: 0.92;
   }
 
   .banner__text {
@@ -299,11 +306,11 @@
   <article class="article">
     <!-- Promo banner (sticky) -->
     <div class="top-sticky">
-      <div class="banner" role="banner">
+      <a class="banner" role="banner" href="https://publishing.1000libraries.com/" target="_blank" rel="noopener noreferrer">
         <p class="banner__text">
           Congratulations, Detective! Use code <span class="banner__code">MYSTERIES5</span> for 5% off your next order.
         </p>
-      </div>
+      </a>
     </div>
 
     <!-- Masthead / brand -->
