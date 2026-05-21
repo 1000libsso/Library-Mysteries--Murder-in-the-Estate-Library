@@ -132,7 +132,7 @@
     top: var(--panel-top);
     width: var(--panel-w);
     height: var(--panel-h);
-    background-color: var(--color-black);
+    background-color: #bf000e;
     z-index: 2;
   }
 
@@ -216,6 +216,31 @@
     height: 21px;
   }
 
+  /* ───────────── Audio toggle ───────────── */
+  .audio-toggle {
+    position: absolute;
+    top: 32px;
+    right: 18px;
+    z-index: 4;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-white);
+    background-color: transparent;
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+  }
+
+  .audio-toggle:hover { opacity: 0.85; }
+  .audio-toggle svg { width: 16px; height: 16px; display: block; }
+  .audio-toggle .icon--mute { display: none; }
+  .audio-toggle.is-muted .icon--sound { display: none; }
+  .audio-toggle.is-muted .icon--mute { display: block; }
+
   /* ───────────── Responsive (mobile, max 768px) ───────────── */
   @media (max-width: 768px) {
     .page {
@@ -243,7 +268,21 @@
         src="assets/logo.png"
         alt="Library Mysteries logo"
       />
+      <button class="audio-toggle" id="audio-toggle" type="button" aria-label="Toggle background music" aria-pressed="true">
+        <svg class="icon--sound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="4 9 8 9 13 5 13 19 8 15 4 15" fill="currentColor"/>
+          <path d="M16 8.5a4 4 0 0 1 0 7"/>
+          <path d="M18.5 6a7 7 0 0 1 0 12"/>
+        </svg>
+        <svg class="icon--mute" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <polygon points="4 9 8 9 13 5 13 19 8 15 4 15" fill="currentColor"/>
+          <line x1="16" y1="8" x2="22" y2="14"/>
+          <line x1="22" y1="8" x2="16" y2="14"/>
+        </svg>
+      </button>
     </header>
+
+    <audio id="bg-music" src="assets/page-3c-music.mp3" loop preload="auto"></audio>
 
     <section class="card" aria-labelledby="card-title">
       <img
@@ -252,7 +291,7 @@
         alt="Final case investigation scene"
       />
 
-      <h1 class="card__title" id="card-title">Objective #3</h1>
+      <h1 class="card__title" id="card-title">Solve the case</h1>
 
       <p class="card__description">Who killed John and framed Helena?</p>
 
@@ -273,5 +312,43 @@
       </a>
     </section>
   </main>
+
+  <script>
+    (function () {
+      var audio = document.getElementById('bg-music');
+      var toggle = document.getElementById('audio-toggle');
+      if (!audio || !toggle) return;
+      audio.volume = 0.5;
+
+      function setMuted(muted) {
+        audio.muted = muted;
+        toggle.classList.toggle('is-muted', muted);
+        toggle.setAttribute('aria-pressed', String(!muted));
+      }
+
+      // Try to autoplay; if blocked, wait for first user interaction.
+      var playPromise = audio.play();
+      if (playPromise && typeof playPromise.catch === 'function') {
+        playPromise.catch(function () {
+          var resume = function () {
+            audio.play().catch(function () {});
+            document.removeEventListener('click', resume);
+            document.removeEventListener('touchstart', resume);
+            document.removeEventListener('keydown', resume);
+          };
+          document.addEventListener('click', resume);
+          document.addEventListener('touchstart', resume);
+          document.addEventListener('keydown', resume);
+        });
+      }
+
+      toggle.addEventListener('click', function () {
+        setMuted(!audio.muted);
+        if (!audio.muted && audio.paused) {
+          audio.play().catch(function () {});
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
