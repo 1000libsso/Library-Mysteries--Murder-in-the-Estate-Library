@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Library Mysteries — CCTV Access Granted</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    /* Colors */
+    --color-grey: rgb(81, 81, 81);
+    --color-near-black: rgb(11, 11, 11);
+    --color-footer: rgb(0, 0, 0);
+    --color-video: rgb(0, 0, 0);
+    --color-black: rgb(0, 0, 0);
+    --color-white: rgb(255, 255, 255);
+    --color-input-border: rgb(221, 221, 221);
+    --color-placeholder: rgb(153, 153, 153);
+
+    /* Typography */
+    --font-sans: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+
+    --fs-heading: 18px;
+    --fs-input: 16px;
+    --fs-button: 16px;
+    --fs-footnote: 10px;
+
+    /* Layout */
+    --frame-w: 400px;
+    --frame-h: 990px;
+    --grey-h: 134px;
+    --video-h: 225px;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-black);
+    color: var(--color-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+  }
+
+  /* ───────────── Page frame ───────────── */
+  .page {
+    position: relative;
+    width: var(--frame-w);
+    height: var(--frame-h);
+    max-width: 100%;
+    overflow: hidden;
+    background-color: var(--color-black);
+  }
+
+  /* ───────────── Grey section ───────────── */
+  .grey-section {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: var(--grey-h);
+    background-color: var(--color-grey);
+  }
+
+  .logo {
+    position: absolute;
+    left: 50%;
+    top: 27px;
+    transform: translateX(-50%);
+    width: 52px;
+    height: 56px;
+    object-fit: contain;
+    user-select: none;
+  }
+
+  .heading {
+    position: absolute;
+    left: 50%;
+    top: 155px;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 51px;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: var(--fs-heading);
+    line-height: 1.4;
+    text-align: center;
+    color: var(--color-white);
+  }
+
+  /* ───────────── Try again button ───────────── */
+  .try-again {
+    position: absolute;
+    left: 50%;
+    top: 246px;
+    transform: translateX(-50%);
+    width: 272px;
+    height: 47px;
+    border-radius: 5px;
+    background-color: var(--color-near-black);
+    border: none;
+    padding: 12px 40px;
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: var(--fs-button);
+    line-height: 1.4;
+    color: var(--color-white);
+    text-align: center;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  .try-again:hover { opacity: 0.92; }
+  .try-again:active { opacity: 0.85; }
+
+  /* ───────────── Video / footage area ───────────── */
+  .video-area {
+    position: absolute;
+    left: 0;
+    top: var(--grey-h);
+    width: 100%;
+    height: var(--video-h);
+    background-color: var(--color-video);
+    overflow: hidden;
+  }
+
+  .video-area__video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: var(--color-video);
+  }
+
+  /* ───────────── Dark footer ───────────── */
+  .footer {
+    position: absolute;
+    left: 0;
+    top: calc(var(--grey-h) + var(--video-h));
+    width: 100%;
+    height: calc(var(--frame-h) - var(--grey-h) - var(--video-h));
+    background-color: var(--color-footer);
+    padding: 60px 24px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .footer__lock {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    border: 1.5px solid var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+
+  .footer__lock svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+  }
+
+  .footer__note {
+    width: 243px;
+    font-family: var(--font-sans);
+    font-weight: 400;
+    font-size: var(--fs-footnote);
+    line-height: 1.6;
+    text-align: center;
+    color: var(--color-white);
+  }
+
+  /* ───────────── Responsive (mobile, max 768px) ───────────── */
+  @media (max-width: 768px) {
+    .page {
+      width: 100vw;
+      height: calc(100vw * (990 / 400));
+      max-width: 400px;
+      max-height: 990px;
+    }
+  }
+</style>
+</head>
+<body>
+  <main class="page" aria-label="Library Mysteries — CCTV Access Granted">
+    <section class="grey-section">
+      <img
+        class="logo"
+        src="assets/cctv-logo.png"
+        alt="CCTV logo"
+      />
+    </section>
+
+    <section class="video-area" aria-label="CCTV footage">
+      <video
+        class="video-area__video"
+        src="assets/cctv-footage.mp4"
+        autoplay
+        muted
+        loop
+        playsinline
+        controls
+        preload="auto"
+        aria-label="CCTV footage video"
+      ></video>
+    </section>
+
+    <footer class="footer">
+      <div class="footer__lock" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="color:#ffffff;">
+          <rect x="5" y="11" width="14" height="10" rx="1.5"/>
+          <path d="M8 11V7a4 4 0 0 1 8 0v4"/>
+          <circle cx="12" cy="16" r="1.2" fill="currentColor"/>
+        </svg>
+      </div>
+      <p class="footer__note">This content is password-protected.</p>
+    </footer>
+  </main>
+
+  <script></script>
+</body>
+</html>
